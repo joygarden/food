@@ -142,7 +142,6 @@ var buildTextMessage = function (reqMessage, respMessage) {
         .end({ pretty: true});
 };
 
-
 Weixin.prototype.getAccessToken = function (callback) {
     var hostname = 'api.weixin.qq.com';
     var path = '/cgi-bin/token';
