@@ -1,0 +1,8 @@
+<div class="list-group">
+    <a href=""
+       ng-class="{active:isSet('{{category}}')}"
+       class="list-group-item"
+       ng-click="setCategory(category)"
+       ng-repeat="category in categories">{{category}}</a>
+</div>
+

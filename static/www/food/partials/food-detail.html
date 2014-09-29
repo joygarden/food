@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="page-header">
+            <h3>{{curFood.name}} </h3>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">特性与功效</h3>
+            </div>
+            <div class="panel-body">
+                <p>{{curFood.feature}}</p>
+            </div>
+        </div>
+
+        <div class="panel" ng-class="{'panel-success':curFood.pregnant.can=='能吃',
+                'panel-danger':curFood.pregnant.can=='不能吃',
+                'panel-warning':curFood.pregnant.can=='慎食'}">
+            <div class="panel-heading">
+                <h3 class="panel-title">孕妇能吃{{curFood.name}}吗？</h3>
+            </div>
+            <div class="panel-body">
+                <p>{{curFood.pregnant.content}}</p>
+            </div>
+        </div>
+
+        <div class="panel" ng-class="{'panel-success':curFood.afterPregnant.can=='能吃',
+                'panel-danger':curFood.afterPregnant.can=='不能吃',
+                'panel-warning':curFood.afterPregnant.can=='慎食'}">
+            <div class="panel-heading">
+                <h3 class="panel-title">产妇能吃{{curFood.name}}吗？</h3>
+            </div>
+            <div class="panel-body">
+                <p>{{curFood.afterPregnant.content}}</p>
+            </div>
+        </div>
+
+        <div class="panel" ng-class="{'panel-success':curFood.babyUsers.can=='能吃',
+                'panel-danger':curFood.babyUsers.can=='不能吃',
+                'panel-warning':curFood.babyUsers.can=='慎食'}">
+            <div class="panel-heading">
+                <h3 class="panel-title">婴幼儿能吃{{curFood.name}}吗？</h3>
+            </div>
+            <div class="panel-body">
+                <p>{{curFood.babyUsers.content}}</p>
+            </div>
+        </div>
+    </div>
+</div>
