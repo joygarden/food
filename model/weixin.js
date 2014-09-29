@@ -101,11 +101,11 @@ var textMessageHandler = function (reqMessage, callback) {
                     }
                 }
                 if(food) {
-                    return callback(null, buildTextMessage(reqMessage,
-                            //'特性与功效：' + food.feature +
-                        '孕妇：' + food.pregnant.content +
-                        '\n产妇：' + food.afterPregnant.content +
-                        '\n婴儿：' + food.babyUsers.content));
+                    var respMessage =  //'特性与功效：' + food.feature +
+                        '【孕妇：'+food.pregnant.can+'】' + dealMsgStr(food.pregnant.content) +
+                        '\n【产妇：'+food.afterPregnant.can+'】' + dealMsgStr(food.afterPregnant.content) +
+                        '\n【婴儿：'+food.babyUsers.can+'】' + dealMsgStr(food.babyUsers.content);
+                    return callback(null, buildTextMessage(reqMessage,respMessage));
                 } else {
                     var message = '您可以输入以下关键词：';
                     for (var index = 0; index < foods.length;index++) {
@@ -120,7 +120,15 @@ var textMessageHandler = function (reqMessage, callback) {
             return callback(null, respMessage);
         });
     }
+};
 
+var dealMsgStr = function (str) {
+    try {
+        return str.substr(str.indexOf('。')+1);
+    } catch(e) {
+        logger.error(str,e);
+        return str;
+    }
 };
 
 var subscribeMessage = function (reqMessage, callback) {
